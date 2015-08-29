@@ -48,13 +48,13 @@
 	<div class="col-md-6">
 		<h3>Overview</h3>
 		<h4>
-			We sought to answer a few questions about the change of AP items between the 5.11 and 5.14 patches. First, how did the usage change in bewteen the patches?
+			We sought to answer a few questions about the change of AP items between the 5.11 and 5.14 patches. First, how did the usage change in between the patches? Did this affect factors such as kill death ratio, magic damage dealt, and gold spent?
 			LoL AP Item Analysis isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
 		</h4>
 		<h3>Methods (Data Processing)</h3>
 		<h4>
 			We used the matches dataset provided by Riot, downloadable <a href="https://s3-us-west-1.amazonaws.com/riot-api/api_challenge/AP_ITEM_DATASET.zip">here</a>.
-			We found the dataset expectationally large to process and possibly not randomly selected, 
+			We found the dataset expectationally large to process and possibly not randomly selected (necessary for statistical tests), 
 			so therefore we chose on randomly picking 1000 elements from each region (basically we stratified by region) using 
 			reservoir sampling, just to be safe and to cut down processing time. We decided against using the inbuilt python method due to its complexity. 
 			Then we determined if there was a significant overall change using a paired t-test (paired the patches to the items), 
@@ -70,7 +70,7 @@
 			our computers are not good enough to calculate/store everything while maintaining a reasonable sample size 
 			(126 champions * 200,000 matches * 10 players * 6 item slots * 45 AP items * 4 variables = nope [and that's only for 5v5 games]).
 			Second, we wanted item centered analysis, and champion changes between the patches could bring possible unwanted lurking variables, and therefore skewed results.
-			So next we could possibly look at which champion chose which items, and the change between them, given enough time.
+			So next we could possibly look at which champion chose which items, and the change between them, given enough time. Also, we would love to process all the games given by Riot.
 		</h4>
 	</div>
 </template>
