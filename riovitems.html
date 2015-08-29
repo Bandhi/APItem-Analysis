@@ -1,0 +1,76 @@
+<head>
+	<title>LoL Item Analysis</title>
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+	<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top" id="custom-bootstrap-menu" role="navigation">
+        	<ul class="nav navbar-nav navbar-left">
+        		<li><strong><a class="navbar-brand" href="/">Home</a></strong></li>
+        	</ul>
+		<ul class="nav navbar-nav navbar-right">
+        		<li><a href="/items">Item List</a></li>
+        		<li><a href="/about">About</a></li>
+				<li><a href="/symbols">Symbols</a></li>
+				<li>..</li>
+        	</ul>
+	</nav>
+</body>
+
+<template name="symbols">
+	<h2>For the </h2>
+	<div id="graph"></div>
+	<div class="col-md-2"></div>
+	<div class="col-md-6">
+		<h4>p = 0.05, x bar = 43, sd = cool <br> insert statements about stuff</h4>
+	</div>
+</template>
+
+<template name="home">
+	<h2>AP Item overall analysis</h2>
+	<div id="graph"></div>
+	<div class="col-md-2"></div>
+	<div class="col-md-6">
+		<h4>$$p = 0.05$$, x bar = 43, sd = cool <br> insert statements about stuff</h4>
+	</div>
+</template>
+
+<template name="items">
+	<h2>AP Item List</h2>
+	<div class="col-md-2"></div>
+	<div class="col-md-6"><h4>prob copy and paste</h4></div>
+</template>
+
+<template name="about">
+	<h2>About</h2>
+	<div class="col-md-2"></div>
+	<div class="col-md-6">
+		<h3>Overview</h3>
+		<h4>
+			We sought to answer a few questions about the change of AP items between the 5.11 and 5.14 patches.
+			
+		</h4>
+		<h3>Methods (Data Processing)</h3>
+		<h4>
+			We used the matches dataset provided by Riot, downloadable <a href="https://s3-us-west-1.amazonaws.com/riot-api/api_challenge/AP_ITEM_DATASET.zip">here</a>.
+			We found the dataset expectationally large to process and possibly not randomly selected, 
+			so therefore we chose on randomly picking 1000 elements from each region (basically we stratified by region) using 
+			reservoir sampling, just to be safe and to cut down processing time. We decided against using the inbuilt python method due to its complexity. 
+			Then we determined if there was a significant overall change using a paired t-test (paired the patches to the items), 
+			and individual item changes using a two sample t-test. We chose these tests because we found other methods inapplicable to this situation.
+		</h4>
+		<h3>Displays</h3>
+		<h4>
+			We used <a href="https://meteor.com">Meteor</a> to create/deploy this site and <a href="http://d3js.org">d3</a> to display the graphs.
+		</h4>
+		<h3>Next Steps</h3>
+		<h4>
+			We didn't conduct tests on champion usage of each item because of two reasons. First, given the supplies we had, 
+			our computers are not good enough to calculate/store everything while maintaining a reasonable sample size 
+			(128 champions * 200,000 matches * 10 players * 6 item slots * 42 AP items * 4 variables = nope [and that's only for 5v5 games]).
+			Second, we wanted item centered analysis, and champion changes between the patches could bring possible unwanted lurking variables, and therefore skewed results.
+			So next we could possibly look at which champion chose which items, and the change between them, given enough time.
+		</h4>
+	</div>
+</template>
