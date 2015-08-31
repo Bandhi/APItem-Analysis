@@ -96,6 +96,22 @@ h3 {
     stroke:white;
     fill:none;
 }
+.line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.y.axis path {
+  display: none;
+}
 .x-axis line {
     fill: none;
     stroke: none;
@@ -128,6 +144,10 @@ h3 {
   margin: 0 auto;
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
+}
+
+.oaerror:hover {
+	cursor: pointer;
 }
 
 .info {
