@@ -22,14 +22,19 @@
 	<div id="graph"></div>
 	<div class="col-md-2"></div>
 	<div class="col-md-6">
-		<h4>$$p = 0.05$$, x bar = 43, sd = cool <br> insert statements about stuff</h4>
+		<h4>$$t = -2.4071, df = 44, p = 0.02034$$ Because p is less than 0.05, we can reject that there was not a change in usage between the patches.</h4>
 	</div>
 </template>
 
 <template name="items">
 	<h2 id="itemtitle">AP Item List</h2>
 	<div class="col-md-2"></div>
-	<div class="col-md-8" id="APitem"></div>
+	<div class="col-md-8">
+		<div id="APitem"></div>
+		<div id="APitem1"></div>
+		<div id="APitem2"></div>
+	</div>
+	
 </template>
 
 <template name="about">
@@ -47,8 +52,7 @@
 			We found the dataset expectationally large to process and possibly not randomly selected (necessary for statistical tests), 
 			so therefore we chose on randomly picking 1000 elements from each region (basically we stratified by region) using 
 			reservoir sampling, just to be safe and to cut down processing time. We decided against using the inbuilt python method due to its complexity. 
-			Then we determined if there was a significant overall change using a paired t-test (paired the patches to the items), 
-			and individual item changes using a two sample t-test. We chose these tests because we found other methods inapplicable to this situation.
+			Then we determined if there was a significant overall change using a paired t-test (paired the patches to the items). We chose this test because we found other methods inapplicable to this situation.
 		</h4>
 		<h3>Displays</h3>
 		<h4>
@@ -58,14 +62,24 @@
 		<h4>
 			We didn't conduct tests on champion usage of each item because of two reasons. First, given the supplies we had, 
 			our computers are not good enough to calculate/store everything while maintaining a reasonable sample size 
-			(126 champions * 200,000 matches * 10 players * 6 item slots * 45 AP items * 4 variables = nope [and that's only for 5v5 games]).
+			(126 champions * \(\geq\)20,000 matches * 10 players * 6 item slots * 45 AP items * 3 variables = nope).
 			Second, we wanted item centered analysis, and champion changes between the patches could bring possible unwanted lurking variables, and therefore skewed results.
 			So next we could possibly look at which champion chose which items, and the change between them, given enough time. Also, we would love to process all the games given by Riot.
+			We were initially going to analyse the RANKED_SOLO matches, however, we ran out of time also. Our R code wasn't producing t-test results fast enough so we couldn't display that either.
 		</h4>
 		<h3>Notes (everything that didn't flow but needs a mention)</h3>
 		<h4>
-			The primary graphs was based off this <a href="http://bl.ocks.org/leondutoit/6436923">block</a>, 
-			and individual graphs was based of this <a href="http://bl.ocks.org/jensgrubert/7777399">block</a>.
+			[1] The primary graphs was based off this <a href="http://bl.ocks.org/leondutoit/6436923">block</a>, and individual graphs was based of this <a href="http://bl.ocks.org/jensgrubert/7777399">block</a>.
+			<br>
+			[2] The t-test was assessing the alternative hypothesis that \(\mu_1 \neq \mu_2\).
+			<br>
+			[3] To avoid division by zero in the KD Ratio, zero deaths were equal to one death.
+			<br>
+			[4] The script (modified a bit) used to fetch and process the games is here.
+			<br>
+			[5] Epanechnikov Kernel was provided unreliable for magic damage dealt and gold spent.
+			<br>
+			[6] Prototype Hex Core doesn't have sufficient data points.
 		</h4>
 	</div>
 </template>
