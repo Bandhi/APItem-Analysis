@@ -12,20 +12,10 @@
 		<ul class="nav navbar-nav navbar-right">
         		<li><a href="/items">Item List</a></li>
         		<li><a href="/about">About</a></li>
-				<li><a href="/symbols">Symbols</a></li>
 				<li>..</li>
         	</ul>
 	</nav>
 </body>
-
-<template name="symbols">
-	<h2>For the </h2>
-	<div id="graph"></div>
-	<div class="col-md-2"></div>
-	<div class="col-md-6">
-		<h4>p = 0.05, x bar = 43, sd = cool <br> insert statements about stuff</h4>
-	</div>
-</template>
 
 <template name="home">
 	<h2>AP Item overall analysis</h2>
@@ -37,7 +27,7 @@
 </template>
 
 <template name="items">
-	<h2>AP Item List</h2>
+	<h2 id="itemtitle">AP Item List</h2>
 	<div class="col-md-2"></div>
 	<div class="col-md-8" id="APitem"></div>
 </template>
