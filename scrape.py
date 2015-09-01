@@ -47,7 +47,7 @@ for i in range(0,k):
     html = urllib.urlopen(url)
     while html.getcode() == 429:
         time.sleep(5)
-        url = 'https://' + region.lower() + '.api.pvp.net/api/lol/' + region.lower() + '/v2.2/match/' + str(data[res[i]]) + '?api_key=' + api[cycle % len(api)]
+        url = 'https://' + region.lower() + '.api.pvp.net/api/lol/' + region.lower() + '/v2.2/match/' + str(data[res[i]]) + '?api_key=' + api
         html = urllib.urlopen(url)
     match = json.load(html)
     
