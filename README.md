@@ -1,7 +1,7 @@
 # APItem-Analysis
 LoL AP Item Analysis
 #Live URL
-coming once we finish the app
+http://apitem.meteor.com/
 #Setting up locally
 clone the repo, run meteor, and open up localhost:3000
 # Copied from the About Page
